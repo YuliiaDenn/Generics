@@ -28,11 +28,21 @@ public class Stack<T> {
 	}
 
 	public T pop() {
-
 		Node<T> node = top;
-		top = top.next;
+		T result = null;
+		
+		try {
+			if (top == null)
+				throw new NullPointerException("The stack is empty!");
+			top = top.next;
+			result = node.data;
+		} catch (NullPointerException e) {
+			System.out.println();
+			System.out.println(e.getMessage());
+		}
+		
+		return result;
 
-		return node.data;
 	}
 
 }

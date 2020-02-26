@@ -1,7 +1,6 @@
 package generics;
 
 public class Dequeue<D> {
-	
 
 	private class Node<N> {
 
@@ -60,37 +59,60 @@ public class Dequeue<D> {
 
 	public D pollFirst() {
 
-		D result = head.data;
+		D result = null;
+		try {
+			if (head == null || tail == null)
+				throw new Exception("The dequeue is empty!");
+			if (head.next == null) {
 
-		if (head.next == null) {
-			head = tail;
-			result = head.data;
-			head = null;
-			return result;
+				head = tail;
+				result = head.data;
+				head = null;
 
-		} else {
-			head = head.next;
-			head.prev = null;
-			return result;
+				return result;
+
+			} else {
+				result = head.data;
+				head = head.next;
+				head.prev = null;
+
+				return result;
+			}
+		} catch (Exception e) {
+			System.out.println();
+			System.out.println(e.getMessage());
 		}
-
+		return result;
 	}
 
 	public D pollLast() {
 
-		D result = tail.data;
+		D result = null;
+		try {
+			if (tail == null || head == null)
+				throw new Exception("The dequeue is empty!");
+			if (tail.prev == null) {
 
-		if (tail.prev == null) {
-			tail = head;
-			result = tail.data;
-			tail = null;
-			return result;
+				tail = head;
+				result = tail.data;
+				tail = null;
 
-		} else {
-			tail = tail.prev;
-			tail.next = null;
-			return result;
+				return result;
+
+			} else {
+				result = tail.data;
+				tail = tail.prev;
+				tail.next = null;
+
+				return result;
+			}
+		} catch (Exception e) {
+			System.out.println();
+			System.out.println(e.getMessage());
+
 		}
+		return result;
+
 	}
 
 }

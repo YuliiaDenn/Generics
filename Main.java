@@ -4,21 +4,20 @@ public class Main {
 
 	public static void main(String[] args) {
 		Stack<Integer> stack = new Stack<>();
+
+		System.out.println("This is stack:");
+		System.out.println();
+
 		stack.push(1);
 		stack.push(2);
 		stack.push(3);
-		System.out.println("This is stack:");
-		System.out.println();
-		try {
-			System.out.println(stack.pop());
-			System.out.println(stack.pop());
-			System.out.println(stack.pop());
+		stack.push(4);
+		System.out.println(stack.pop());
+		System.out.println(stack.pop());
+		System.out.println(stack.pop());
 
-			System.out.println(stack.pop());
-			System.out.println(stack.pop());
-		} catch (NullPointerException e) {
-			System.out.println("Stack is empty!");
-		}
+		System.out.println(stack.pop());
+		System.out.println(stack.pop());
 
 		System.out.println();
 
@@ -27,16 +26,14 @@ public class Main {
 		stackS.push("Two");
 		stackS.push("Three");
 
-		try {
+		
 			System.out.println(stackS.pop());
 			System.out.println(stackS.pop());
 			System.out.println(stackS.pop());
 
 			System.out.println(stackS.pop());
 			System.out.println(stackS.pop());
-		} catch (NullPointerException e) {
-			System.out.println("Stack is empty!");
-		}
+		
 
 		Dequeue<Integer> dequeue = new Dequeue<>();
 
@@ -53,7 +50,7 @@ public class Main {
 		System.out.println("This is queue:");
 		System.out.println();
 
-		try {
+	
 
 			System.out.println();
 			System.out.println("It is pollFirst");
@@ -70,18 +67,15 @@ public class Main {
 			System.out.println(dequeue.pollLast());
 			System.out.println();
 
-		} catch (NullPointerException e) {
-			System.out.println();
-			System.out.println("Queue is empty!");
-		}
-
-		Dequeue<String> ds = new Dequeue<>();
 		
+		Dequeue<String> ds = new Dequeue<>();
+
 		ds.addFirst("one");
 		ds.addFirst("zero");
 		ds.addLast("some number");
+		
 
-		try {
+		
 			System.out.println();
 			System.out.println("This is queue:");
 			System.out.println();
@@ -89,11 +83,9 @@ public class Main {
 			System.out.println(ds.pollLast());
 			System.out.println(ds.pollLast());
 			System.out.println(ds.pollFirst());
+			System.out.println(ds.pollFirst());
 			System.out.println();
-		} catch (NullPointerException e) {
-			System.out.println();
-			System.out.println("Queue is empty!");
-		}
+		
 	}
 
 }
